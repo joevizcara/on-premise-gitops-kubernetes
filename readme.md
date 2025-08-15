@@ -1,7 +1,11 @@
-# Managing On-Premises Kubernetes Infrastructure with GitOps
+# {draft}Managing On-Premises Kubernetes Infrastructure with GitOps
+
+
+## Deployment
+
+1.  download and edit prep.sh if it fails
 
 ```sh
-
 sh <(https://gitlab.com/joevizcara/on-premise-gitops-kubernetes/-/raw/master/prep.sh)
 
 ```

@@ -19,5 +19,9 @@ kubectl get node -o wide
 
 # sudo rm -f /usr/local/bin/kubectl /usr/local/bin/k3sup
 # ssh k3s@192.168.1.101
+# sudo flux uninstall
+
+curl -s https://fluxcd.io/install.sh | sudo bash
+
 
 flux bootstrap git --url=ssh://git@gitlab.com/joevizcara/on-premise-gitops-kubernetes --branch=master --private-key-file=/path/to/private_ssh_key
