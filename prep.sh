@@ -11,11 +11,18 @@ ssh-copy-id k3s@192.168.1.201 && \
 ssh-copy-id k3s@192.168.1.202 && \
 
 
-k3sup install --ip 192.168.1.101 --user k3s --no-extras && \
+k3sup install --ip 192.168.1.101 --user k3s --no-extras --tls-san 192.168.1.111 && \
 k3sup join --ip 192.168.1.201 --server-ip 192.168.1.101 --user k3s && \
 k3sup join --ip 192.168.1.202 --server-ip 192.168.1.101 --user k3s && \
 
-kubectl get node -o wide
+kubectl get no -o wide
+
+export KUBECONFIG=$(pwd)/kubeconfig
+
+
+# ssh k3s@192.168.1.101 "sudo k3s-unsinstall.sh && sudo reboot"
+# ssh k3s@192.168.1.201 "sudo k3s-agent-uninstall.sh && sudo reboot"
+# ssh k3s@192.168.1.202 "sudo k3s-agent-uninstall.sh && sudo reboot"
 
 # sudo rm -f /usr/local/bin/kubectl /usr/local/bin/k3sup
 # ssh k3s@192.168.1.101
@@ -25,3 +32,10 @@ curl -s https://fluxcd.io/install.sh | sudo bash
 
 
 flux bootstrap git --url=ssh://git@gitlab.com/joevizcara/on-premise-gitops-kubernetes --branch=master --private-key-file=/path/to/private_ssh_key
+
+
+flux create source git podinfo \
+  --url=https://github.com/stefanprodan/podinfo \
+  --branch=master \
+  --interval=1m \
+  --export > ./podinfo/podinfo-source.yaml
