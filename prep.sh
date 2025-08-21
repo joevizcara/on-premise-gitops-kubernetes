@@ -39,3 +39,21 @@ flux create source git podinfo \
   --branch=master \
   --interval=1m \
   --export > ./podinfo/podinfo-source.yaml
+
+flux create kustomization podinfo \
+  --target-namespace=default \
+  --source=podinfo \
+  --path="./kustomize" \
+  --prune=true \
+  --wait=true \
+  --interval=30m \
+  --retry-interval=2m \
+  --health-check-timeout=3m \
+  --export > ./podinfo/podinfo-kustomization.yaml
+
+
+flux create source oci kube-vip \
+  --url=oci://ghcr.io/kube-vip/kube-vip \
+  --tag=latest \
+  --interval=5m \
+  --namespace=flux-system
