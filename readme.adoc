@@ -9,3 +9,4 @@
 sh <(https://gitlab.com/joevizcara/on-premise-gitops-kubernetes/-/raw/master/prep.sh)
 
 ```
+https://gitlab.com/joevizcara/on-premise-gitops-kubernetes/-/raw/master/prep.sh[test]
