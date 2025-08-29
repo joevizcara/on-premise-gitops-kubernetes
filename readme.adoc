@@ -1,8 +1,8 @@
-# {draft}Managing On-Premises Kubernetes Infrastructure with GitOps
+= [UNFINISHED - DO NOT USE]Managing On-Premises Kubernetes Infrastructure with GitOps
 
-= test heading
+test
 
-## Deployment
+== Deployment
 
 1.  download and edit prep.sh if it fails
 
@@ -11,3 +11,17 @@ sh <(https://gitlab.com/joevizcara/on-premise-gitops-kubernetes/-/raw/master/pre
 
 ```
 https://gitlab.com/joevizcara/on-premise-gitops-kubernetes/-/raw/master/prep.sh[test]
+
+
+== test header
+
+=== tset
+
+[NOTE]
+fsefae
+
+fawefaweoij
+
+fawef
+
+fawef
